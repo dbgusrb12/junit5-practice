@@ -13,8 +13,8 @@ class Study1Test {
 
     @Test
     void create() {
-        Study1 study1 = new Study1();
-        assertNotNull(study1);
+        Study study = new Study();
+        assertNotNull(study);
         System.out.println("create");
     }
 
