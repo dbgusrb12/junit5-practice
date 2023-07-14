@@ -1,6 +1,6 @@
 package com.hg.junit5practice;
 
-public class Study {
+public class Study1 {
 
 }
 

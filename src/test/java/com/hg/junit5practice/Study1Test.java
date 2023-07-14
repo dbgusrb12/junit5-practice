@@ -9,12 +9,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class StudyTest {
+class Study1Test {
 
     @Test
     void create() {
-        Study study = new Study();
-        assertNotNull(study);
+        Study1 study1 = new Study1();
+        assertNotNull(study1);
         System.out.println("create");
     }
 
