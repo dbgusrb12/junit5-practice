@@ -27,7 +27,7 @@ public class Study3Test {
     @Test
     @DisplayName("스터디 생성 값 일치 여부 확인")
     void create_new_study_equals_status() {
-        Study study = new Study();
+        Study study = new Study(StudyStatus.DRAFT);
 
         // assertEquals(Object expected, Object actual, String message);
         // expected(기대 값) 와 actual(실제 값) 이 서로 같은지 확인 후 아닐 경우 message 표시
