@@ -12,4 +12,6 @@
 - [테스트 순서 설정](https://github.com/dbgusrb12/junit5-practice/blob/main/src/test/java/com/hg/junit5practice/junit5/Study8Test.java)
 - [테스트 설정 파일](https://github.com/dbgusrb12/junit5-practice/blob/main/src/test/resources/junit-platform.properties)
 - [테스트 확장 모델](https://github.com/dbgusrb12/junit5-practice/blob/main/src/test/java/com/hg/junit5practice/junit5/Study9Test.java)
+- [Mockito API](https://github.com/dbgusrb12/junit5-practice/blob/main/src/test/java/com/hg/junit5practice/mockito/study/StudyServiceTest.java)
+- [BDDMockito API](https://github.com/dbgusrb12/junit5-practice/blob/main/src/test/java/com/hg/junit5practice/mockito/study/StudyServiceBDDTest.java)
 
