@@ -10,6 +10,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.hg.junit5practice.mockito.domain.Member;
+import com.hg.junit5practice.mockito.domain.Study;
 import com.hg.junit5practice.mockito.member.MemberService;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
@@ -128,6 +129,25 @@ class StudyServiceTest {
 
         Optional<Member> byId2 = memberService.findById(1L);
         assertTrue(byId2.isEmpty());
+    }
+
+    @Test
+    @DisplayName("스터디 생성 테스트")
+    void create_study_test() {
+        StudyService studyService = new StudyService(memberService, studyRepository);
+        assertNotNull(studyService);
+
+        Member member = new Member();
+        member.setId(1L);
+        member.setEmail("hg@email.com");
+
+        Study study = new Study(10, "테스트");
+
+        when(memberService.findById(1L)).thenReturn(Optional.of(member));
+        when(studyRepository.save(study)).thenReturn(study);
+
+        studyService.createNewStudy(1L, study);
+        assertEquals(member, study.getOwner());
     }
 
 }
