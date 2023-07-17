@@ -1,4 +1,4 @@
-package com.hg.junit5practice;
+package com.hg.junit5practice.junit5;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;

@@ -1,4 +1,4 @@
-package com.hg.junit5practice;
+package com.hg.junit5practice.junit5;
 
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;

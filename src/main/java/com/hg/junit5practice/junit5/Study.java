@@ -1,4 +1,4 @@
-package com.hg.junit5practice;
+package com.hg.junit5practice.junit5;
 
 public class Study {
 
