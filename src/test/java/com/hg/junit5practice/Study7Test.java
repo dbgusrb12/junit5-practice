@@ -32,6 +32,6 @@ public class Study7Test {
     @Test
     @DisplayName("인스턴스 테스트")
     void instance_test_2() {
-        System.out.println("test1 " + value++);
+        System.out.println("test2 " + value++);
     }
 }
