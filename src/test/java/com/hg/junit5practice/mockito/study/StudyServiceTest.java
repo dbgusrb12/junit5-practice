@@ -6,8 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 import com.hg.junit5practice.mockito.domain.Member;
 import com.hg.junit5practice.mockito.domain.Study;
@@ -16,6 +20,7 @@ import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -148,6 +153,38 @@ class StudyServiceTest {
 
         studyService.createNewStudy(1L, study);
         assertEquals(member, study.getOwner());
+    }
+
+    @Test
+    @DisplayName("스터디 생성 후 mock 객체 확인")
+    void create_study_test_2() {
+        StudyService studyService = new StudyService(memberService, studyRepository);
+        assertNotNull(studyService);
+
+        Member member = new Member();
+        member.setId(1L);
+        member.setEmail("hg@email.com");
+
+        Study study = new Study(10, "테스트");
+
+        when(memberService.findById(1L)).thenReturn(Optional.of(member));
+        when(studyRepository.save(study)).thenReturn(study);
+
+        studyService.createNewStudy(1L, study);
+        assertEquals(member, study.getOwner());
+
+        // memberService.notify(study) 가 한번 호출됐는지 확인
+        verify(memberService, times(1)).notify(study);
+        // memberService.notify(member) 가 한번 호출됐는지 확인
+        verify(memberService, times(1)).notify(member);
+        // memberService.validate() 메서드가 호출되지 않았는지 확인
+        verify(memberService, never()).validate(any());
+
+        // 메서드 실행 순서 설정
+        InOrder inOrder = inOrder(memberService);
+        // memberService.notify(study) 호출 후 memberService.notify(member) 호출 했는지 확인
+        inOrder.verify(memberService).notify(study);
+        inOrder.verify(memberService).notify(member);
     }
 
 }
