@@ -19,8 +19,7 @@ public class Study2Test {
     }
 
     @Test
-    @DisplayName("스터디 생성 \uD83D\uDE31 🧐")
-        // 테스트 별 이름 설정 (이모지도 가능)
+    @DisplayName("스터디 생성 \uD83D\uDE31 🧐") // 테스트 별 이름 설정 (이모지도 가능)
     void create_new_study_1() {
         System.out.println("create new study 1");
     }

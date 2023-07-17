@@ -15,8 +15,7 @@ class Study1Test {
     }
 
     @Test // 테스트용 로직
-    @Disabled
-        // 테스트 제외
+    @Disabled // 테스트 제외
     void create1() {
         System.out.println("create1");
     }
@@ -31,14 +30,12 @@ class Study1Test {
         System.out.println("After all");
     }
 
-    @BeforeEach
-        // 각각의 테스트가 실행되기 이전에 실행되는 로직
+    @BeforeEach // 각각의 테스트가 실행되기 이전에 실행되는 로직
     void beforeEach() {
         System.out.println("Before each");
     }
 
-    @AfterEach
-        // 각각의 테스트가 실행 된 후에 실행되는 로직
+    @AfterEach // 각각의 테스트가 실행 된 후에 실행되는 로직
     void afterEach() {
         System.out.println("After each");
     }
